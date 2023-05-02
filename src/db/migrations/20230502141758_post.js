@@ -4,10 +4,9 @@
  */
 exports.up = (knex) => knex.schema.createTable('posts', (table) => {
     table.increments('id');
-    table.increments('userId')
+    table.string('userId')
     table.string('post_body').notNullable();
-    table.timestamps('created_at', true);
-    table.timestamps('updated_at', true);
+    table.timestamps(true, true);
   });
 
 /**
@@ -15,6 +14,6 @@ exports.up = (knex) => knex.schema.createTable('posts', (table) => {
  * @returns { Promise<void> }
  */
 exports.down = (knex) => {
-    knex.schema.dropTable('posts');
+    return knex.schema.dropTable('posts');
 };
 // 
