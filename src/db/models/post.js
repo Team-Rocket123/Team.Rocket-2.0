@@ -43,9 +43,14 @@ class Post {
         }
       }; 
 
-    //   static async deleteAll() {
+    //   static async delete() {
     //     try {
-    //       return knex.raw('TRUNCATE users;');
+    //       .where({ id: this.id })
+    //     const post = await Post.findById(postId);
+    // await post.remove();
+
+    
+    //return knex.raw('TRUNCATE users;');
     //     } catch (err) {
     //       console.error(err);
     //       return null;
