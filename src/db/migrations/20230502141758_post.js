@@ -4,7 +4,7 @@
  */
 exports.up = (knex) => knex.schema.createTable('posts', (table) => {
     table.increments('id');
-    table.string('userId')
+    table.string('user_id')
     table.string('post_body').notNullable();
     table.timestamps(true, true);
   });

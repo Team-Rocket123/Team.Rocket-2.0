@@ -1,6 +1,6 @@
 const destroy = (req, res) => {
-    const {Comment, params: { id }} = req;
-    const deleted = Comment.delete(Number(id));
+    const {db:{Comment}, params: { id }} = req;
+    const deleted = Comment.deleteComment(Number(id));
     const statusCode = deleted ? 204 : 404;
     res.sendStatus(statusCode);
   }

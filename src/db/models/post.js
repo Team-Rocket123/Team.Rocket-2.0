@@ -18,11 +18,11 @@ class Post {
         }
       }
 
-      static async create(id, user_id, post_body) {
+      static async create( user_id, post_body) {
         try {
-          const query = `INSERT INTO posts (id, user_id, post_body)
-            VALUES (${1}, ${2}, ${3}) RETURNING *`;
-          const { rows: [post] } = await knex.raw(query, [id, user_id, post_body]);
+          const query = `INSERT INTO posts (user_id, post_body)
+            VALUES (?, ?) RETURNING *`;
+          const { rows: [post] } = await knex.raw(query, [user_id, post_body]);
           return new Post(post);
         } catch (err) {
           console.error(err);
@@ -30,7 +30,7 @@ class Post {
         }
       }
 
-      update = async (post) => { // dynamic queries are easier if you add more properties
+      update = async (post) => { 
         try {
           const [updatedPost] = await knex('posts')
             .where({ id: this.id })
@@ -43,14 +43,14 @@ class Post {
         }
       }; 
 
-    //   static async deleteAll() {
-    //     try {
-    //       return knex.raw('TRUNCATE users;');
-    //     } catch (err) {
-    //       console.error(err);
-    //       return null;
-    //     }
-    //   }
+      static async deletePost(id) {
+        try {
+          return knex.raw('DELETE FROM posts WHERE id = ?',[id]);
+        } catch (err) {
+          console.error(err);
+          return null;
+        }
+      };
     }
 
 module.exports = Post;

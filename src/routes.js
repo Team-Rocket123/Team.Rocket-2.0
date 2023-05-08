@@ -1,6 +1,7 @@
 const express = require('express');
 const userController = require('./controllers/user');
-const postController = require('./controllers/posts')
+const postController = require('./controllers/posts');
+const commentController = require('./controllers/comments');
 const addModels = require('./middleware/add-models');
 const checkAuthentication = require('./middleware/check-authentication');
 
@@ -38,7 +39,9 @@ Router.delete('/users/logout', userController.logout);
 Router.get('/posts', postController.list);
 Router.post('/posts', postController.create); 
 Router.patch('/posts/:id', postController.update); 
-
-
+Router.delete('/posts/:id', postController.destroy);
+//------------------------COMMENT ROUTES-----------------------------------------------
+Router.post('/comments', commentController.create);
+Router.delete('/comments/:id', commentController.destroy);
 
 module.exports = Router;

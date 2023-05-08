@@ -1,14 +1,13 @@
 const createComment = async (req, res) => {
     const {
-      session,
       db: {Comment},
-      body: {comment_body}
+      body: {comment_id,comment_body}
     } = req;
   
-    const post = await Comment.create(comment_body);
-    session.commentId = Comment.userId
+    const comment = await Comment.create(comment_id,comment_body);
+    // session.commentId = Comment.userId
   
-    res.send(Comment)
+    res.send(comment)
   }
 
   module.exports = createComment;
