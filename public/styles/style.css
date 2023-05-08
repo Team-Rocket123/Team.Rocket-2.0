@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700138810.jpg');
+
 }
 
 nav {
@@ -21,4 +23,35 @@ nav ul li:first-child {
 #secret-container {
   text-align: center;
   border: black 1px dashed;
+}
+
+.login{
+
+  text-align: center;
+  border: black 1px solid;
+  width: 300px; 
+  padding: 20px; 
+  margin: 10% auto 0; 
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: 'Manga Temple', sans-serif;
+
+}
+.submit {
+  text-align: center;
+  border: black 1px solid;
+  width: 100px; 
+  padding: 8px; 
+  margin: 10% auto 0; 
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: 'Manga Temple', sans-serif;
+  font-size: larger;
+}
+
+#main-nav{
+  background-color: rgba(255, 255, 255, 0.9);
+  font-family: 'Manga Temple', sans-serif;
+  padding: 10px; 
+  font-size: larger;
 }
